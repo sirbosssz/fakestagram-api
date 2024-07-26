@@ -6,6 +6,9 @@ class Api::AuthController < Api::ApiController
     password = params[:password]
     username = params[:username]
 
+    exists_user = User.find_by_email(email)
+    raise ApiBadreqError.new("email already exists") if !exists_user.blank?
+
     user = User.create!(email: email, password: password, username: username)
     #
     render json: { result: user }
