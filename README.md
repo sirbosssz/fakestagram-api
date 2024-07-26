@@ -15,7 +15,8 @@ docker compose up --build -d
 3. migrate database
 
 ```sh
-docker compose run api rails db:migrate 
+docker compose run api rails db:migrate
+docker compose run api rails db:seed
 ```
 
 4. That should be able to run in `localhost:3000`
@@ -29,26 +30,27 @@ Assuming using Postman to run APIs
 ### Header Setup
 
 > if any API that require authentication, should do the following.
+
 1. Login with [Login-API](#Setup)
 
 2. You will get response like this
 
 ```json
 {
-    "result": {
-        "username": "example",
-        "jwt": "eyJhbGciOiJIUzI1NiJ9....."
-    }
+  "result": {
+    "username": "example",
+    "jwt": "eyJhbGciOiJIUzI1NiJ9....."
+  }
 }
 ```
 
 3. Copy jwt value from response
 
-4. Go to __Authorization__ tab in Postman
+4. Go to **Authorization** tab in Postman
 
 5. Select Auth Type to `Bearer Token`
 
-6. Paste value to __Token__ field
+6. Paste value to **Token** field
 
 ## Auth
 
