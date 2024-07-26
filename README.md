@@ -15,7 +15,7 @@ docker compose up --build -d
 3. migrate database
 
 ```sh
-docker compose run api rails db:migrate
+docker compose run api rails db:create db:migrate
 docker compose run api rails db:seed
 ```
 
@@ -159,3 +159,13 @@ Assuming using Postman to run APIs
   - Authorization: Bearer <jwt>
 - Response:
   - message: string
+
+# Tests
+
+1. run the project with docker
+
+2. run rspec command to each test files located in /spec directory
+
+```sh
+docker compose run api rspec spec ./spec/api/posts_spec.rb
+```
