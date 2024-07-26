@@ -18,5 +18,8 @@ Rails.application.routes.draw do
     post "auth/login" => "auth#login", as: :login
     delete "auth/logout" => "auth#logout", as: :logout
     get "auth/check-token" => "auth#check"
+
+    get "posts/my" => "posts#by_user", as: :by_user
+    resources :posts
   end
 end
