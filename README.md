@@ -12,7 +12,13 @@ This is project that mimic of Instagram in MVP feature (post image and descripti
 docker compose up --build -d
 ```
 
-3. That should be able to run in `localhost:3000`
+3. migrate database
+
+```sh
+docker compose run api rails db:migrate 
+```
+
+4. That should be able to run in `localhost:3000`
 
 # API Lists
 
