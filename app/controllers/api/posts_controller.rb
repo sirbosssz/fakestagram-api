@@ -22,7 +22,7 @@ class Api::PostsController < Api::ApiController
 
   def show
     post = Post.find_by_id(params[:id])
-    raise Exception.new("post not found") if post.blank?
+    raise ApiNotfoundError.new("post not found") if post.blank?
     render json: post
   end
 
@@ -42,7 +42,7 @@ class Api::PostsController < Api::ApiController
 
   def get_my_post_by_id
     @post = current_user.posts.find_by_id(params[:id])
-    raise Exception.new("post not found or you are not post owner") if @post.blank?
+    raise ApiBadreqError.new("post not found or you are not post owner") if @post.blank?
   end
 
   def params_post

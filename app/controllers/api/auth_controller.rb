@@ -17,12 +17,12 @@ class Api::AuthController < Api::ApiController
 
     user = User.find_by_email(email)
 
-    raise Exception.new("user not found") if user.blank?
+    raise ApiBadreqError.new("user not found") if user.blank?
 
     if user.valid_password?(password)
       render json: { result: user.as_jwt }
     else
-      raise Exception.new("invalid password")
+      raise ApiBadreqError.new("invalid password")
     end
   end
 
