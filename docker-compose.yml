@@ -1,0 +1,30 @@
+version: '3.9'
+
+services:
+  api:
+    build: .
+    command: bundle exec rails s -p 3000 -b 0.0.0.0
+    ports:
+      - '3000:3000'
+    depends_on:
+      - database
+    volumes:
+      - .:/app
+    networks:
+      - fakestagram
+    env_file:
+      - .env
+
+  database:
+    image: postgres:16-alpine
+    ports:
+      - 5432:5432
+    env_file:
+      - .env
+    networks:
+      - fakestagram
+    restart: always
+
+networks:
+  fakestagram:
+    driver: bridge
