@@ -14,6 +14,10 @@ services:
       - fakestagram
     env_file:
       - .env
+    environment:
+      - DATABASE_HOST=database
+    tty: true
+    stdin_open: true
 
   database:
     image: postgres:16-alpine
