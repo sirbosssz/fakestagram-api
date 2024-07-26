@@ -39,10 +39,13 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
   gem "annotate"
+  gem "rspec-rails", "~> 6.1"
 end
 
 gem "devise", "~> 4.9"
 
 gem "jwt", "~> 2.8"
 
-gem "rspec-rails", "~> 6.1"
+gem "fabrication", "~> 2.31"
+
+gem "jsonapi-serializer", "~> 2.2"
