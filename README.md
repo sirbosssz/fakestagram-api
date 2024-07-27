@@ -164,8 +164,8 @@ Assuming using Postman to run APIs
 
 1. run the project with docker
 
-2. run rspec command to each test files located in /spec directory
+2. run rspec command to test files that located in /spec directory
 
 ```sh
-docker compose run api rspec spec ./spec/api/posts_spec.rb
+docker compose run api rspec spec
 ```

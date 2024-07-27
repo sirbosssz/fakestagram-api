@@ -13,6 +13,8 @@ class Api::PostsController < Api::ApiController
   end
 
   def create
+    raise ApiBadreqError.new("image_url is required") if params[:post][:image_url].blank?
+
     post = Post.new(params_post)
     post.user = current_user
     post.save
